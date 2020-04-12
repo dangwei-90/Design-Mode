@@ -64,7 +64,7 @@ private:
 	buildPerson* _buildperson = new buildPerson();
 };
 
-int main()
+int main9()
 {
 	buildClass* buildclass = new buildClass();
 
