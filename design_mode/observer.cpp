@@ -86,7 +86,7 @@ private:
 };
 
 
-int main()
+int main10()
 {
 	Secretary* secretary = new Secretary();
 
