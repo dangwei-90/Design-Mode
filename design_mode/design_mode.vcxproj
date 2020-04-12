@@ -156,6 +156,7 @@
     <ClCompile Include="build.cpp" />
     <ClCompile Include="facade.cpp" />
     <ClCompile Include="observer.cpp" />
+    <ClCompile Include="state.cpp" />
     <ClCompile Include="template_method.cpp" />
     <ClCompile Include="cpp\design_mode.cpp" />
     <ClCompile Include="cpp\simple_factory.cpp" />
