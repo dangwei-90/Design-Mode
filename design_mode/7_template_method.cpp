@@ -1,7 +1,7 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 模板方法模式
 
 #include <iostream>
 
@@ -9,9 +9,9 @@ using namespace std;
 
 class AbstractClass {
 public:
-	virtual void doSomething() {}
+	virtual void doSomething() = 0;
 
-	virtual void doOtherthing() {}
+	virtual void doOtherthing() = 0;
 
 public:
 	void someDoIt() {

@@ -15,43 +15,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cpp\simple_factory.cpp">
+    <ClCompile Include="cpp\1_simple_factory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="cpp\design_mode.cpp">
+    <ClCompile Include="2_strategy_pattern.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="finery.cpp">
+    <ClCompile Include="cpp\3_decorator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="cpp\decorator.cpp">
+    <ClCompile Include="4_proxy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="proxy.cpp">
+    <ClCompile Include="5_factory_method.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="factory_method.cpp">
+    <ClCompile Include="6_prototype.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="prototype.cpp">
+    <ClCompile Include="7_template_method.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="template_method.cpp">
+    <ClCompile Include="8_facade.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="facade.cpp">
+    <ClCompile Include="9_build.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="build.cpp">
+    <ClCompile Include="10_observer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="observer.cpp">
+    <ClCompile Include="11_abstract_factory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="abstract_factory.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="state.cpp">
+    <ClCompile Include="12_state.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

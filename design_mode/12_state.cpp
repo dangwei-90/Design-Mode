@@ -122,7 +122,7 @@ Work::Work() {
 	_state = new FornoonState();
 }
 
-int main()
+int main12()
 {
 	Work* work = new Work();
 

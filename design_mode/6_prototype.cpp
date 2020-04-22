@@ -1,7 +1,7 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 原型模式
 
 #include <iostream>
 
@@ -21,9 +21,7 @@ public:
 		return _id;
 	}
 
-	virtual Prototype* Clone() {
-		return nullptr;
-	};
+	virtual Prototype* Clone() = 0;
 
 private:
 	string _id;
@@ -35,7 +33,7 @@ public :
 		_id = id;
 	}
 
-	virtual void SetID(string id) {
+	void SetID(string id) {
 		_id = id;
 	}
 
@@ -53,7 +51,7 @@ private:
 	string _id;
 };
 
-int main6()
+int main()
 {
 	ConcreatePrototype* p1 = new ConcreatePrototype("p1");
 	ConcreatePrototype* p2 = (ConcreatePrototype*)p1->Clone();

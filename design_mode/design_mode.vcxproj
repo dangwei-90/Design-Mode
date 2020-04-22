@@ -42,8 +42,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -152,19 +152,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="abstract_factory.cpp" />
-    <ClCompile Include="build.cpp" />
-    <ClCompile Include="facade.cpp" />
-    <ClCompile Include="observer.cpp" />
-    <ClCompile Include="state.cpp" />
-    <ClCompile Include="template_method.cpp" />
-    <ClCompile Include="cpp\design_mode.cpp" />
-    <ClCompile Include="cpp\simple_factory.cpp" />
-    <ClCompile Include="cpp\decorator.cpp" />
-    <ClCompile Include="factory_method.cpp" />
-    <ClCompile Include="finery.cpp" />
-    <ClCompile Include="prototype.cpp" />
-    <ClCompile Include="proxy.cpp" />
+    <ClCompile Include="11_abstract_factory.cpp" />
+    <ClCompile Include="9_build.cpp" />
+    <ClCompile Include="8_facade.cpp" />
+    <ClCompile Include="10_observer.cpp" />
+    <ClCompile Include="12_state.cpp" />
+    <ClCompile Include="7_template_method.cpp" />
+    <ClCompile Include="cpp\1_simple_factory.cpp" />
+    <ClCompile Include="cpp\3_decorator.cpp" />
+    <ClCompile Include="5_factory_method.cpp" />
+    <ClCompile Include="2_strategy_pattern.cpp" />
+    <ClCompile Include="6_prototype.cpp" />
+    <ClCompile Include="4_proxy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

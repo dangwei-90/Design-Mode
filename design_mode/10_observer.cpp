@@ -1,7 +1,7 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 观察者模式
 
 #include <iostream>
 #include <vector> 
@@ -12,8 +12,6 @@ class Secretary;
 
 class Observer {
 public:
-	//Observer() {}
-	//Observer(string name, Secretary* secretary) {}
 	virtual void Notify() {
 	}
 

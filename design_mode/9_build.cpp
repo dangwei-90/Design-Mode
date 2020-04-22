@@ -1,7 +1,7 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式- 建造者模式
 
 #include <iostream>
 
@@ -9,10 +9,10 @@ using namespace std;
 
 class buildPerson {
 public:
-	virtual void createHead() {};
-	virtual void createBody() {};
-	virtual void createHand() {};
-	virtual void createFoot() {};
+	virtual void createHead() {}
+	virtual void createBody() {}
+	virtual void createHand() {}
+	virtual void createFoot() {}
 };
 
 class buildThinPerson: public buildPerson {

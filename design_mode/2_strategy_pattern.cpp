@@ -1,7 +1,7 @@
 // simple_factory.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 策略模式
 
 #include <iostream>
 
@@ -10,10 +10,7 @@ using namespace std;
 
 class CashSuper {
 public:
-	virtual double acceptCash(double money) {
-		// donothing;
-		return 0;
-	}
+	virtual double acceptCash(double money) = 0;
 };
 
 
@@ -63,35 +60,6 @@ private:
 	double _return = 0;
 };
 
-// simple factory
-class CashFactory {
-public:
-	CashSuper* CreateCashAccept(int ntype) {
-		CashSuper* cashSuper = nullptr;
-		switch (ntype) {
-		case 1:
-		{
-			cashSuper = new CashNormal();
-			break;
-		}
-		case 2:
-		{
-			cashSuper = new CashRebate(0.8);
-			break;
-		}
-		case 3:
-		{
-			cashSuper = new CashReturn(500, 300);
-			break;
-		}
-		default:
-			break;
-		}
-
-		return cashSuper;
-	}
-};
-
 // strategy
 class CashContext {
 public:
@@ -127,14 +95,6 @@ private:
 
 int main2()
 {
-	// simple factory
-	/*
-	CashFactory* cashFactory = nullptr;
-	int ntype = 3;
-	CashSuper * cashSuper = cashFactory->CreateCashAccept(ntype);
-	cout << cashSuper->acceptCash(1000) << "\n";
-	*/
-
 	int ntype = 3;
 	CashContext* cashContext = new CashContext(ntype);
 	cout << cashContext->GetCashResult(1000) << "\n";

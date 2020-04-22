@@ -1,7 +1,7 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 代理模式
 
 #include <iostream>
 
@@ -10,9 +10,9 @@ using namespace std;
 class CGiveGift
 {
 public:
-	virtual void GiveDolls() {}
-	virtual void GiveFollows() {}
-	virtual void GiveChocolates() {}
+	virtual void GiveDolls() = 0;
+	virtual void GiveFollows() = 0;
+	virtual void GiveChocolates() = 0;
 };
 
 class SchoolGirl
