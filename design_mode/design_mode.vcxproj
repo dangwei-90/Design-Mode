@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cpp\10_observer.cpp" />
+    <ClCompile Include="cpp\11_abstract_factory.cpp" />
+    <ClCompile Include="cpp\12_state.cpp" />
+    <ClCompile Include="cpp\1_simple_factory.cpp" />
+    <ClCompile Include="cpp\2_strategy_pattern.cpp" />
+    <ClCompile Include="cpp\3_decorator.cpp" />
+    <ClCompile Include="cpp\4_proxy.cpp" />
+    <ClCompile Include="cpp\5_factory_method.cpp" />
+    <ClCompile Include="cpp\6_prototype.cpp" />
+    <ClCompile Include="cpp\7_template_method.cpp" />
+    <ClCompile Include="cpp\8_facade.cpp" />
+    <ClCompile Include="cpp\9_build.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{BF2A03A0-D500-4A90-8F51-8F0493E7192B}</ProjectGuid>
@@ -42,7 +56,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -151,20 +165,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="11_abstract_factory.cpp" />
-    <ClCompile Include="9_build.cpp" />
-    <ClCompile Include="8_facade.cpp" />
-    <ClCompile Include="10_observer.cpp" />
-    <ClCompile Include="12_state.cpp" />
-    <ClCompile Include="7_template_method.cpp" />
-    <ClCompile Include="cpp\1_simple_factory.cpp" />
-    <ClCompile Include="cpp\3_decorator.cpp" />
-    <ClCompile Include="5_factory_method.cpp" />
-    <ClCompile Include="2_strategy_pattern.cpp" />
-    <ClCompile Include="6_prototype.cpp" />
-    <ClCompile Include="4_proxy.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

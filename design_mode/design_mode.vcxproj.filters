@@ -15,40 +15,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cpp\2_strategy_pattern.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\4_proxy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\5_factory_method.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\6_prototype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\7_template_method.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\8_facade.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\9_build.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\10_observer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\11_abstract_factory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\12_state.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="cpp\1_simple_factory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="2_strategy_pattern.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="cpp\3_decorator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="4_proxy.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="5_factory_method.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="6_prototype.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="7_template_method.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="8_facade.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="9_build.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="10_observer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="11_abstract_factory.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="12_state.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
