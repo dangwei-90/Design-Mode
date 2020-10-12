@@ -130,7 +130,7 @@ public:
 	ForeignCenter* foreign = new ForeignCenter();
 };
 
-int main()
+int main13()
 {
 	Adapter* adapter = new Adapter();
 	adapter->Request();
