@@ -74,7 +74,7 @@ private:
 	vector<Component*> component_vector_;
 };
 
-int main()
+int main15()
 {
 	Composite* root = new Composite("root");
 	root->Add(new Leaf("leaf_a"));

@@ -25,6 +25,7 @@
     <ClCompile Include="cpp\13_adapter.cpp" />
     <ClCompile Include="cpp\14_memento.cpp" />
     <ClCompile Include="cpp\15_composite.cpp" />
+    <ClCompile Include="cpp\16_iterator.cpp" />
     <ClCompile Include="cpp\1_simple_factory.cpp" />
     <ClCompile Include="cpp\2_strategy_pattern.cpp" />
     <ClCompile Include="cpp\3_decorator.cpp" />
