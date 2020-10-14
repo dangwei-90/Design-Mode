@@ -4,6 +4,10 @@
 
 #include <iostream>
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
 using namespace std;
 
 // base
@@ -71,5 +75,7 @@ int main1()
 
 	cout << op->GetResult() << endl;
   
+	SAFE_DELETE(op);
+
 	return 0;
 }
