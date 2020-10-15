@@ -96,7 +96,7 @@ private:
   Iterator* iterator_ = nullptr;
 };
 
-int main()
+int main16()
 {
   ConcreteAggregate* concrete_aggregate = new ConcreteAggregate();
   concrete_aggregate->Push("a");
