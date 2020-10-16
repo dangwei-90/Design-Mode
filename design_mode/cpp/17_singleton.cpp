@@ -31,7 +31,7 @@ public:
 
 Singleton* Singleton::singleton_ = nullptr;
 
-int main()
+int main17()
 {
   Singleton* test_a = Singleton::GetInstance();
   Singleton* test_b = Singleton::GetInstance();
