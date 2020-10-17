@@ -46,7 +46,7 @@ private:
 };
 
 
-int main()
+int main18()
 {
   /*
   Abstruction* abstruction = new Abstruction();
