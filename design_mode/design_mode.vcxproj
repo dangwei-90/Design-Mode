@@ -30,6 +30,7 @@
     <ClCompile Include="cpp\18_bridge.cpp" />
     <ClCompile Include="cpp\19_command.cpp" />
     <ClCompile Include="cpp\1_simple_factory.cpp" />
+    <ClCompile Include="cpp\20_chain_of_respoinsibility.cpp" />
     <ClCompile Include="cpp\2_strategy_pattern.cpp" />
     <ClCompile Include="cpp\3_decorator.cpp" />
     <ClCompile Include="cpp\4_proxy.cpp" />

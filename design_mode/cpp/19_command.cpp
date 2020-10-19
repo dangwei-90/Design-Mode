@@ -51,7 +51,7 @@ private:
 };
 
 
-int main()
+int main19()
 {
   Receiver* receiver = new Receiver();
   Command* command = new ConcreteCommand();

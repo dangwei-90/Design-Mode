@@ -72,5 +72,8 @@
     <ClCompile Include="cpp\19_command.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="cpp\20_chain_of_respoinsibility.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
