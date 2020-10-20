@@ -80,7 +80,7 @@ public:
   }
 };
 
-int main()
+int main20()
 {
   vector<int> nums = { 3, 10 ,2 ,54, 90, 33, 41, 5, 20 };
   FirstHandler* firsthandler = new FirstHandler();
