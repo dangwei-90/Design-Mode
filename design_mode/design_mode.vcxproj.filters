@@ -78,5 +78,8 @@
     <ClCompile Include="cpp\21_mediator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="cpp\22_flyweight.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

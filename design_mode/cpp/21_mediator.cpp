@@ -82,7 +82,7 @@ private:
   ConcreteColleagueB* colleague_b_ = nullptr;
 };
 
-int main()
+int main21()
 {
   ConcreteMediator* mediator = new ConcreteMediator();
 
