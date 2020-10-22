@@ -34,7 +34,7 @@ private:
   string date_ = "";
 };
 
-int main()
+int main23()
 {
   Content* content = new Content();
   vector<Interpreter*> interpre;

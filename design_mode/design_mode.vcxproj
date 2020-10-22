@@ -34,6 +34,7 @@
     <ClCompile Include="cpp\21_mediator.cpp" />
     <ClCompile Include="cpp\22_flyweight.cpp" />
     <ClCompile Include="cpp\23_interpreter.cpp" />
+    <ClCompile Include="cpp\24_visitor.cpp" />
     <ClCompile Include="cpp\2_strategy_pattern.cpp" />
     <ClCompile Include="cpp\3_decorator.cpp" />
     <ClCompile Include="cpp\4_proxy.cpp" />
