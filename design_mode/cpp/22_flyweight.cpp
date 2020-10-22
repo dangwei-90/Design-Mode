@@ -42,7 +42,7 @@ private:
   vector<Flyweight*> flyweight_;
 };
 
-int main()
+int main22()
 {
   FlyweightFactory* flyweight_factory = new FlyweightFactory();
 
@@ -54,5 +54,6 @@ int main()
 
   UnsharedConreteFlyweight* unshared_concrete_flyweight = new UnsharedConreteFlyweight();
   unshared_concrete_flyweight->Operation(16);
+
 	return 0;
 }

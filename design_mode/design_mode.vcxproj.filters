@@ -81,5 +81,8 @@
     <ClCompile Include="cpp\22_flyweight.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="cpp\23_interpreter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
