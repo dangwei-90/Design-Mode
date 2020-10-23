@@ -70,7 +70,7 @@ public:
   }
 };
 
-int main()
+int main24()
 {
   vector<Person*> person;
   person.push_back(new Man());
