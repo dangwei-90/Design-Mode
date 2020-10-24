@@ -68,7 +68,7 @@ public:
 	}
 };
 
-int main()
+int main1()
 {
 	int first_num = 3;
 	int second_num = 6;

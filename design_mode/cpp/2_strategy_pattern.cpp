@@ -7,14 +7,14 @@
 
 using namespace std;
 
-
+// 不同策略的接口
 class CashSuper {
 public:
 	virtual double acceptCash(double money) = 0;
 };
 
-
-// 正常收费子类
+// 具体的策略实现子类
+// 正常收费
 class CashNormal : public CashSuper {
 public:
 	double acceptCash(double money) {
@@ -22,33 +22,34 @@ public:
 	}
 };
 
-
-// 打折收费子类
+// 具体的策略实现子类
+// 打折收费
 class CashRebate : public CashSuper {
 public:
 	CashRebate(double moneyRebate) {
-		_moneyRebate = moneyRebate;
+		moneyRebate_ = moneyRebate;
 	}
 
 	double acceptCash(double money) {
-		return money * _moneyRebate;
+		return money * moneyRebate_;
 	}
+
 private:
-	double _moneyRebate = 0;
+	double moneyRebate_ = 0;
 };
 
-
-// 返利收费子类
+// 具体的策略实现子类
+// 返利收费
 class CashReturn : public CashSuper {
 public:
 	CashReturn(double total, double ret) {
-		_total = total;
-		_return = ret;
+		total_ = total;
+		return_ = ret;
 	}
 
 	double acceptCash(double money) {
-		if (money > _total) {
-			return money - _return;
+		if (money > total_) {
+			return money - return_;
 		}
 		else {
 			return money;
@@ -56,28 +57,28 @@ public:
 	}
 
 private:
-	double _total = 0;
-	double _return = 0;
+	double total_ = 0;
+	double return_ = 0;
 };
 
-// strategy
+// 根据具体不同的策略，创建不同的对象，包含策略的具体算法
 class CashContext {
 public:
 	CashContext(int ntype) {
 		switch (ntype) {
 		case 1:
 		{
-			_cashSuper = new CashNormal();
+			cashSuper_ = new CashNormal();
 			break;
 		}
 		case 2:
 		{
-			_cashSuper = new CashRebate(0.8);
+			cashSuper_ = new CashRebate(0.8);
 			break;
 		}
 		case 3:
 		{
-			_cashSuper = new CashReturn(500, 300);
+			cashSuper_ = new CashReturn(500, 300);
 			break;
 		}
 		default:
@@ -85,19 +86,37 @@ public:
 		}
 	}
 
+	~CashContext() {
+		if (cashSuper_ != nullptr) {
+			delete cashSuper_;
+			cashSuper_ = nullptr;
+		}
+	}
+
 	double GetCashResult(double money) {
-		return _cashSuper->acceptCash(money);
+		return cashSuper_->acceptCash(money);
 	}
 
 private:
-	CashSuper* _cashSuper = nullptr;
+	CashSuper* cashSuper_ = nullptr;
 };
 
-int main2()
+int main()
 {
+	// 客户端只关心调用策略类型，而不关心策略的具体实现
 	int ntype = 3;
 	CashContext* cashContext = new CashContext(ntype);
 	cout << cashContext->GetCashResult(1000) << "\n";
+
+	delete cashContext;
+	cashContext = nullptr;
+
+	ntype = 2;
+	cashContext = new CashContext(ntype);
+	cout << cashContext->GetCashResult(1000) << "\n";
+
+	delete cashContext;
+	cashContext = nullptr;
 
 	return 0;
 }
