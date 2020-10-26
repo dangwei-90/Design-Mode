@@ -7,6 +7,11 @@
 
 using namespace std;
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
+
 // 代理模式
 // 抽象类，包含功能接口
 // 实现类，继承抽象类，并实现功能
@@ -46,15 +51,21 @@ public:
 	}
 
 	void GiveDolls() {
-		cout << "pursuit give dolls to "<< schoolgirl_->getname() << "\n";
+		if (schoolgirl_) {
+			cout << "pursuit give dolls to " << schoolgirl_->getname() << "\n";
+		}
 	}
 
 	void GiveFollows() {
-		cout << "pursuit give follows to " << schoolgirl_->getname() << "\n";
+		if (schoolgirl_) {
+			cout << "pursuit give follows to " << schoolgirl_->getname() << "\n";
+		}
 	}
 
 	void GiveChocolates() {
-		cout << "pursuit give chocolates to " << schoolgirl_->getname() << "\n";
+		if (schoolgirl_) {
+			cout << "pursuit give chocolates to " << schoolgirl_->getname() << "\n";
+		}
 	}
 
 private:
@@ -67,17 +78,27 @@ public:
 	Proxy(SchoolGirl* schoolgirl) {
 		pursuit_ = new Pursuit(schoolgirl);
 	}
+
+	~Proxy() {
+		SAFE_DELETE(pursuit_);
+	}
 	
 	void GiveDolls() {
-		pursuit_->GiveDolls();
+		if (pursuit_) {
+			pursuit_->GiveDolls();
+		}
 	}
 
 	void GiveFollows() {
-		pursuit_->GiveFollows();
+		if (pursuit_) {
+			pursuit_->GiveFollows();
+		}
 	}
 
 	void GiveChocolates() {
-		pursuit_->GiveChocolates();
+		if (pursuit_) {
+			pursuit_->GiveChocolates();
+		}
 	}
 
 
@@ -97,6 +118,9 @@ int main()
 	proxy->GiveDolls();
 	proxy->GiveFollows();
 	proxy->GiveChocolates();
+
+	SAFE_DELETE(proxy)
+	SAFE_DELETE(schoolgirl)
 
 	return 0;
 }
