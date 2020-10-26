@@ -101,7 +101,7 @@ private:
 	CashSuper* cashSuper_ = nullptr;
 };
 
-int main()
+int main2()
 {
 	// 客户端只关心调用策略类型，而不关心策略的具体实现
 	int ntype = 3;
