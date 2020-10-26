@@ -5,6 +5,10 @@
 
 #include <iostream>
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
 using namespace std;
 
 // 装饰模式
@@ -42,10 +46,6 @@ public:
 		man_ = man;
 	}
 
-	void show() {
-		man_->show();
-	}
-
 protected:
 	ManDecorator* man_ = nullptr;
 };
@@ -55,7 +55,9 @@ class Sneaker : public Finery {
 public:
 	void show() {
 		cout << "运动鞋 ";
-		man_->show();
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 
@@ -64,7 +66,9 @@ class BigTrouser : public Finery {
 public:
 	void show() {
 		cout << "垮裤 ";
-		man_->show();
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 
@@ -72,8 +76,10 @@ public:
 class TShirt : public Finery {
 public:
 	void show() {
-		cout << " T恤 ";
-		man_->show();
+		cout << "T恤 ";
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 
@@ -82,7 +88,9 @@ class LeatherShoes : public Finery {
 public:
 	void show() {
 		cout << "皮鞋 ";
-		man_->show();
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 
@@ -91,7 +99,9 @@ class Tie : public Finery {
 public:
 	void show() {
 		cout << "领带 ";
-		man_->show();
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 
@@ -100,7 +110,9 @@ class Suit : public Finery {
 public:
 	void show() {
 		cout << "西装 ";
-		man_->show();
+		if (man_ != nullptr) {
+			man_->show();
+		}
 	}
 };
 int main()
@@ -118,15 +130,20 @@ int main()
 
 	// 统一展示Link的装饰
 	tshirt->show();
-
+	SAFE_DELETE(sneaker);
+	SAFE_DELETE(bigtrouser);
+	SAFE_DELETE(tshirt)
 
 	Tie* tie = new Tie();
 	LeatherShoes* leathershoe = new LeatherShoes();
-	//Sneaker* sneaker = new Sneaker();
 	tie->decorate(man);
 	leathershoe->decorate(tie);
-	sneaker->decorate(leathershoe);
-	sneaker->show();
+	leathershoe->show();
+
+	SAFE_DELETE(tie);
+	SAFE_DELETE(leathershoe);
+
+	SAFE_DELETE(man)
 
 	return 0;
 }
