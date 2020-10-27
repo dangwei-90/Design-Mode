@@ -53,7 +53,7 @@ public :
 	}
 };
 
-int main()
+int main6()
 {
 	ConcreatePrototype* p1 = new ConcreatePrototype("p1");
 	ConcreatePrototype* p2 = (ConcreatePrototype*)p1->Clone();
