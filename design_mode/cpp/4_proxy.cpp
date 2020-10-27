@@ -107,7 +107,7 @@ private:
 };
 
 
-int main()
+int main4()
 {
 	SchoolGirl* schoolgirl = new SchoolGirl();
 	schoolgirl->setname("¿ÓΩøΩø");

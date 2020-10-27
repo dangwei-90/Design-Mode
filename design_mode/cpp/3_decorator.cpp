@@ -115,7 +115,7 @@ public:
 		}
 	}
 };
-int main()
+int main3()
 {
 	// 具体的人 link
 	ManDecorator* man = new ManDecorator("link");
