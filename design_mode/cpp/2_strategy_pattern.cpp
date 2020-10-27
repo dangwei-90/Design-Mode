@@ -7,6 +7,10 @@
 
 using namespace std;
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
 // 不同策略的接口
 class CashSuper {
 public:
@@ -87,10 +91,7 @@ public:
 	}
 
 	~CashContext() {
-		if (cashSuper_ != nullptr) {
-			delete cashSuper_;
-			cashSuper_ = nullptr;
-		}
+		SAFE_DELETE(cashSuper_)
 	}
 
 	double GetCashResult(double money) {
@@ -107,16 +108,12 @@ int main2()
 	int ntype = 3;
 	CashContext* cashContext = new CashContext(ntype);
 	cout << cashContext->GetCashResult(1000) << "\n";
-
-	delete cashContext;
-	cashContext = nullptr;
+	SAFE_DELETE(cashContext)
 
 	ntype = 2;
 	cashContext = new CashContext(ntype);
 	cout << cashContext->GetCashResult(1000) << "\n";
-
-	delete cashContext;
-	cashContext = nullptr;
+	SAFE_DELETE(cashContext)
 
 	return 0;
 }
