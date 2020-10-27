@@ -79,7 +79,7 @@ public:
 	}
 };
 
-int main()
+int main5()
 {
 	// 由客户端决定，创建具体功能的工厂
 	CFactory* factory = new MultFactory();
