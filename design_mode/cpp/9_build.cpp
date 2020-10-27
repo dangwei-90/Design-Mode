@@ -76,7 +76,7 @@ private:
 	buildPerson* buildperson_ = nullptr;
 };
 
-int main()
+int main9()
 {
 	// 建造者对象
 	buildClass* buildclass = new buildClass();
