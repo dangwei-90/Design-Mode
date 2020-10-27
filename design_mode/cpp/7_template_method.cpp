@@ -50,7 +50,7 @@ public:
 	}
 };
 
-int main()
+int main7()
 {
 	aBoy* aboy = new aBoy();
 	aboy->someDoIt();
