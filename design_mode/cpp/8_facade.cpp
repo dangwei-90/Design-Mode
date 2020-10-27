@@ -92,7 +92,7 @@ private:
 	subSystemFour* subsystemfour_ = nullptr;
 };
 
-int main()
+int main8()
 {
 	Facade* facade = new Facade();
 	facade->one_and_two_create();
