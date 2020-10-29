@@ -193,7 +193,7 @@ private:
 	int dbtype_ = 2; // 1 sql 2 access
 };
 
-int main()
+int main11()
 {
 	/*
 	IFactory* ifactory = new SqlServerFactory();

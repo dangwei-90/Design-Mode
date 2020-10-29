@@ -1,9 +1,17 @@
 // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 状态模式
 
 #include <iostream>
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
+// 状态模式：存在多种状态，用if else逻辑较为繁琐时，可采用状态模式进行管控
+// 
+// 注意：内存泄露问题
 
 using namespace std;
 
@@ -18,33 +26,38 @@ public:
 class Work {
 public:
 	Work();
+	~Work() {
+		SAFE_DELETE(state_);
+	}
 
 	void setHour(int hour) {
-		_hour = hour;
+		hour_ = hour;
 	}
 	int getHour() {
-		return _hour;
+		return hour_;
 	}
 
 	void setFinish(bool finish) {
-		_finish = finish;
+		finish_ = finish;
 	}
 	int getFinish() {
-		return _finish;
+		return finish_;
 	}
 
+	// 此处注意内存泄露
 	void setState(State* state) {
-		_state = state;
+		SAFE_DELETE(state_);
+		state_ = state;
 	}
 
 	void getCurrentState() {
-		_state->writeProgram(this);
+		state_->writeProgram(this);
 	}
 
 private:
-	int _hour = 0;
-	bool _finish = false;
-	State* _state = nullptr;
+	int hour_ = 0;
+	bool finish_ = false;
+	State* state_ = nullptr;
 };
 
 class SleeptimeState : public State {
@@ -119,10 +132,10 @@ public:
 };
 
 Work::Work() {
-	_state = new FornoonState();
+	state_ = new FornoonState();
 }
 
-int main12()
+int main()
 {
 	Work* work = new Work();
 
@@ -149,6 +162,8 @@ int main12()
 
 	work->setHour(21);
 	work->getCurrentState();
+
+	SAFE_DELETE(work);
 
 	return 0;
 }
