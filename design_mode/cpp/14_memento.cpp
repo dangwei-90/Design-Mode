@@ -58,7 +58,7 @@ void print_player_state(Player* player) {
 	printf("defence: %d \n", player->defence_);
 }
 
-int main()
+int main14()
 {
 	// before pk boss
 	Player* player = new Player();
