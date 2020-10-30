@@ -141,7 +141,7 @@ public:
 	ForeignCenter* foreign_ = new ForeignCenter();
 };
 
-int main()
+int main13()
 {
 	// Ê¾ÀıÒ»
 	Adapter* adapter = new Adapter();
