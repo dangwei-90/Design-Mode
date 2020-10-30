@@ -35,12 +35,12 @@
     <ClCompile Include="cpp\22_flyweight.cpp" />
     <ClCompile Include="cpp\23_interpreter.cpp" />
     <ClCompile Include="cpp\24_visitor.cpp" />
-    <ClCompile Include="cpp\2_strategy_pattern.cpp" />
+    <ClCompile Include="cpp\2_strategy.cpp" />
     <ClCompile Include="cpp\3_decorator.cpp" />
     <ClCompile Include="cpp\4_proxy.cpp" />
-    <ClCompile Include="cpp\5_factory_method.cpp" />
+    <ClCompile Include="cpp\5_factory.cpp" />
     <ClCompile Include="cpp\6_prototype.cpp" />
-    <ClCompile Include="cpp\7_template_method.cpp" />
+    <ClCompile Include="cpp\7_template.cpp" />
     <ClCompile Include="cpp\8_facade.cpp" />
     <ClCompile Include="cpp\9_build.cpp" />
   </ItemGroup>

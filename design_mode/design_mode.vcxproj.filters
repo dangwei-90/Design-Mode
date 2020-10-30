@@ -15,19 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cpp\2_strategy_pattern.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="cpp\4_proxy.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="cpp\5_factory_method.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="cpp\6_prototype.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="cpp\7_template_method.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="cpp\8_facade.cpp">
@@ -85,6 +76,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="cpp\24_visitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\2_strategy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\5_factory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\7_template.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
