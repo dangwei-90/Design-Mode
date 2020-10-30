@@ -135,7 +135,7 @@ Work::Work() {
 	state_ = new FornoonState();
 }
 
-int main()
+int main12()
 {
 	Work* work = new Work();
 
