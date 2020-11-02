@@ -81,7 +81,7 @@ private:
 	vector<Component*> component_vector_;
 };
 
-int main()
+int main15()
 {
 	// 根节点及两个叶子结点
 	Composite* root = new Composite("root");
