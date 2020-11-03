@@ -51,7 +51,7 @@ private:
 };
 
 
-int main()
+int main18()
 {
   Implementor* implementor = new ImplementorA();
   // also , can use SetImplementor();
@@ -67,7 +67,5 @@ int main()
   SAFE_DELETE(abstruction);
 
 
-	return 0;
+  return 0;
 }
-
-
