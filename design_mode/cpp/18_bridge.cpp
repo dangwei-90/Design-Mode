@@ -1,12 +1,17 @@
  // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 桥接模式
 
 #include <iostream>
 
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
+
 using namespace std;
 
+// 方法接口
 class Implementor {
 public:
   virtual void Operation() = 0;
@@ -46,35 +51,20 @@ private:
 };
 
 
-int main18()
+int main()
 {
-  /*
-  Abstruction* abstruction = new Abstruction();
-  // memory leak
-  abstruction->SetImplementor(new ImplementorA());
-  abstruction->Operation();
-
-  // memory leak
-  abstruction->SetImplementor(new ImplementorB());
-  abstruction->Operation();
-  */
-
-  Implementor* implementor = new ImplementorA(); 
+  Implementor* implementor = new ImplementorA();
   // also , can use SetImplementor();
   Abstruction* abstruction = new Abstruction(implementor);
   abstruction->Operation();
-  delete implementor;
-  implementor = nullptr;
-  delete abstruction;
-  abstruction = nullptr;
+  SAFE_DELETE(implementor);
+  SAFE_DELETE(abstruction);
 
   implementor = new ImplementorB();
   abstruction = new Abstruction(implementor);
   abstruction->Operation();
-  delete implementor;
-  implementor = nullptr;
-  delete abstruction;
-  abstruction = nullptr;
+  SAFE_DELETE(implementor);
+  SAFE_DELETE(abstruction);
 
 
 	return 0;
