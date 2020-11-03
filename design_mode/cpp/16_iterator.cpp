@@ -104,7 +104,7 @@ private:
   Iterator* iterator_ = nullptr;
 };
 
-int main()
+int main16()
 {
   // ConcreteAggregate成员变量vector进行处理。 
   // 该类CreateIterator方法实现了调用迭代器接口，并将将this传给迭代器。
