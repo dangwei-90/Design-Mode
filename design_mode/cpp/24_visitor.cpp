@@ -1,10 +1,14 @@
- // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+// 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 访问者模式
 
 #include <iostream>
 #include <vector>
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
 
 using namespace std;
 
@@ -12,6 +16,7 @@ class Person;
 class Man;
 class Women;
 
+// 接口
 class Action {
 public:
   virtual void GetManConclusion(Man* man) = 0;
@@ -70,7 +75,7 @@ public:
   }
 };
 
-int main24()
+int main()
 {
   vector<Person*> person;
   person.push_back(new Man());
@@ -93,5 +98,15 @@ int main24()
   {
     (*it)->Accept(amtiveness);
   }
+
+  // delete person
+  for (auto it = person.begin(); it != person.end(); it++) {
+    SAFE_DELETE(*it);
+  }
+
+  SAFE_DELETE(success);
+  SAFE_DELETE(fail);
+  SAFE_DELETE(amtiveness);
+
 	return 0;
 }
