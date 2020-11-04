@@ -59,7 +59,7 @@ private:
   vector<Flyweight*> flyweight_;
 };
 
-int main()
+int main22()
 {
   FlyweightFactory* flyweight_factory = new FlyweightFactory();
 
