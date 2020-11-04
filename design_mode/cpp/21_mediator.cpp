@@ -1,20 +1,26 @@
- // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+// 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 中介者模式
 
 #include <iostream>
 #include <vector>
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
 
 using namespace std;
 
 class Colleague;
 
+// 中介接口 抽象类
 class Mediator {
 public:
   virtual void Send(string str, Colleague* colleague) = 0;
 };
 
+// 响应接口 抽象类
 class Colleague {
 public:
   virtual void Notify() = 0;
@@ -27,6 +33,7 @@ protected:
   Mediator* mediator_ = nullptr;
 };
 
+// 响应接口A
 class ConcreteColleagueA : public Colleague{
 public:
   void SetMediatorA(Mediator* mediator) {
@@ -42,6 +49,7 @@ public:
   }
 };
 
+// 响应接口B
 class ConcreteColleagueB : public Colleague {
 public:
   void SetMediatorB(Mediator* mediator) {
@@ -57,6 +65,7 @@ public:
   }
 };
 
+// 实现中介：A类 send to B类， B类 send to A类
 class ConcreteMediator : public Mediator {
 public:
   void SetColleagueA(ConcreteColleagueA* colleague) {
@@ -82,7 +91,7 @@ private:
   ConcreteColleagueB* colleague_b_ = nullptr;
 };
 
-int main21()
+int main()
 {
   ConcreteMediator* mediator = new ConcreteMediator();
 
@@ -97,6 +106,10 @@ int main21()
 
   colleague_a->Send("a , send a msg");
   colleague_b->Send("b , send a msg");
+
+  SAFE_DELETE(colleague_a);
+  SAFE_DELETE(colleague_b);
+  SAFE_DELETE(mediator);
 
 	return 0;
 }
