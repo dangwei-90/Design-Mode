@@ -1,10 +1,15 @@
  // 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-// 参考大话设计模式
+// 参考大话设计模式 - 责任链模式
+// 责任链模式：有点像OA审批流畅，满足条件后一个一个往下走。
 
 #include <iostream>
 #include <vector>
+
+#ifndef SAFE_DELETE
+#define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
+#endif
 
 using namespace std;
 
@@ -80,7 +85,7 @@ public:
   }
 };
 
-int main20()
+int main()
 {
   vector<int> nums = { 3, 10 ,2 ,54, 90, 33, 41, 5, 20 };
   FirstHandler* firsthandler = new FirstHandler();
@@ -93,6 +98,10 @@ int main20()
   for (auto num : nums) {
     firsthandler->HandlerRequest(num);
   }
+
+  SAFE_DELETE(firsthandler);
+  SAFE_DELETE(secondhandler);
+  SAFE_DELETE(thirdhandler);
 
 	return 0;
 }
