@@ -10,6 +10,11 @@
 #define SAFE_DELETE(p) { if(p){delete(p); (p)=NULL;} }
 #endif
 
+//#define USE_SHARED_PTR
+#define USE_UNIQUE_PTR
+//#define USE_NEW_CLASS
+
+
 using namespace std;
 
 class Person;
@@ -25,7 +30,13 @@ public:
 
 class Person {
 public:
+#if defined (USE_UNIQUE_PTR) || defined(USE_NEW_CLASS)
+  virtual void Accept(Action* action) = 0;
+#endif
+
+#ifdef USE_SHARED_PTR
   virtual void Accept(std::shared_ptr<Action> action) = 0;
+#endif // USE_SHARED_PTR
 };
 
 class Success : public Action {
@@ -63,68 +74,150 @@ public:
 
 class Man :public Person {
 public:
+#if defined (USE_UNIQUE_PTR) || defined(USE_NEW_CLASS)
+  void Accept(Action* action) {
+#endif
+#if defined (USE_SHARED_PTR)
   void Accept(std::shared_ptr<Action> action) {
+#endif
     action->GetManConclusion(this);
   }
 };
 
 class Women :public Person {
 public:
+#if defined (USE_UNIQUE_PTR) || defined(USE_NEW_CLASS)
+  void Accept(Action* action) {
+#endif
+#if defined (USE_SHARED_PTR)
   void Accept(std::shared_ptr<Action> action) {
+#endif
     action->GetWomenConlusion(this);
   }
 };
 
-// use unique_ptr, not support our demo.
-void display(vector<std::unique_ptr<Person>>& person, std::unique_ptr<Action> action) {
+#if defined (USE_UNIQUE_PTR)
+// use unique_ptr
+void display(vector<std::unique_ptr<Person>>& person, Action* action) {
   for (auto it = person.begin(); it != person.end(); it++) {
-    (*it)->Accept(std::move(action));
+    (*it)->Accept(action);
   }
 }
+#endif
 
 int main()
 {
-  // use shared_ptr instead of new point.
-  //vector<Person*> person;
-  //person.push_back(new Man());
-  //person.push_back(new Women());
+  // use shared_ptr or unique_ptr instead of new point.
 
+#if defined(USE_NEW_CLASS)
+  vector<Person*> person;
+  person.push_back(new Man());
+  person.push_back(new Women());
+#endif
+
+#if defined(USE_SHARED_PTR)
   vector<std::shared_ptr<Person>> person;
   person.push_back(std::shared_ptr<Man>(new Man()));
   person.push_back(std::shared_ptr<Women>(new Women()));
-  
-  // Success* success = new Success();
-  std::shared_ptr<Success> success(new Success());
-  //display(person, std::move(success));
+#endif
 
+#if defined(USE_UNIQUE_PTR)
+  vector<std::unique_ptr<Person>> person;
+  person.push_back(std::unique_ptr<Man>(new Man()));
+  person.push_back(std::unique_ptr<Women>(new Women()));
+#endif
+
+#if defined(USE_NEW_CLASS)
+  Success* success = new Success();
+#endif
+
+#if defined(USE_SHARED_PTR)
+  std::shared_ptr<Success> success(new Success());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  std::unique_ptr<Success> success(new Success());
+  // can also use display.
+  // display(person, success.get());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  for (auto it = person.begin(); it != person.end(); it++)
+  {
+    (*it)->Accept(success.get());
+  }
+#endif
+
+#if defined(USE_SHARED_PTR) || defined(USE_NEW_CLASS)
   for (auto it = person.begin(); it != person.end(); it++)
   {
     (*it)->Accept(success);
   }
+#endif
 
-  // Fail* fail = new Fail();
+#if defined(USE_NEW_CLASS)
+  Fail* fail = new Fail();
+#endif
+
+#if defined(USE_SHARED_PTR)
   std::shared_ptr<Fail> fail(new Fail());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  std::unique_ptr<Fail> fail(new Fail());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  for (auto it = person.begin(); it != person.end(); it++)
+  {
+    (*it)->Accept(fail.get());
+  }
+#endif
+
+#if defined(USE_SHARED_PTR) || defined(USE_NEW_CLASS)
   for (auto it = person.begin(); it != person.end(); it++)
   {
     (*it)->Accept(fail);
   }
+#endif
 
-  // Amtiveness* amtiveness = new Amtiveness();
+#if defined(USE_NEW_CLASS)
+  Amtiveness* amtiveness = new Amtiveness();
+#endif
+
+#if defined(USE_SHARED_PTR)
   std::shared_ptr<Amtiveness> amtiveness(new Amtiveness());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  std::unique_ptr<Amtiveness> amtiveness(new Amtiveness());
+#endif
+
+#if defined(USE_UNIQUE_PTR)
+  for (auto it = person.begin(); it != person.end(); it++)
+  {
+    (*it)->Accept(amtiveness.get());
+  }
+#endif
+
+#if defined(USE_SHARED_PTR) || defined(USE_NEW_CLASS)
   for (auto it = person.begin(); it != person.end(); it++)
   {
     (*it)->Accept(amtiveness);
   }
+#endif
 
+#if defined(USE_NEW_CLASS)
   // use shared_ptr. we need not delete vector.
   // delete person
-  //for (auto it = person.begin(); it != person.end(); it++) {
-  //  SAFE_DELETE(*it);
-  //}
+  for (auto it = person.begin(); it != person.end(); it++) {
+    SAFE_DELETE(*it);
+  }
 
-  // SAFE_DELETE(success);
-  // SAFE_DELETE(fail);
-  // SAFE_DELETE(amtiveness);
+  SAFE_DELETE(success);
+  SAFE_DELETE(fail);
+  SAFE_DELETE(amtiveness);
+#endif
 
 	return 0;
 }
