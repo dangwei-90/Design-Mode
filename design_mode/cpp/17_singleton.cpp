@@ -16,6 +16,21 @@
 
 using namespace std;
 
+
+/////////////////////C++ 11///////////////////
+class SingletonStatic {
+public:
+  ~SingletonStatic() {}
+
+  static SingletonStatic* GetInstance() {
+    static SingletonStatic* singleton_static = new SingletonStatic();
+    return singleton_static;
+  }
+};
+//////////////////////////////////////////////
+
+
+//////////////////加锁方式实现////////////////
 // 加锁，保障线程安全
 mutex g_mt_lock;
 
@@ -36,27 +51,35 @@ public:
     return singleton_;
   }
 
-  void testfun() {
-    test_num_++;
-    cout << "test object" << endl;
-  }
-
 public:
   static Singleton* singleton_;
-  int test_num_ = 0;
 };
-
 Singleton* Singleton::singleton_ = nullptr;
+////////////////////////////////////////////
 
-int main17()
+
+int main()
 {
+  // C++ 11 的 static 特性，实现单例模式
+  SingletonStatic* test_a_static = SingletonStatic::GetInstance();
+  SingletonStatic* test_b_static = SingletonStatic::GetInstance();
+  if (test_a_static == test_b_static) {
+    cout << "static same singleton" << endl;
+  }
+  else {
+    cout << "static not same singleton" << endl;
+  }
+
+  // 加锁的方式实现单例模式
   Singleton* test_a = Singleton::GetInstance();
   Singleton* test_b = Singleton::GetInstance();
   if (test_a == test_b) {
     cout << "same singleton" << endl;
   }
+  else {
+    cout << "not same singleton" << endl;
+  }
 
-  test_a->testfun();
 
   /* 暂不考虑释放问题。代码过于丑陋，较难维护，且意义不大。
   //delete Singleton::GetInstance();

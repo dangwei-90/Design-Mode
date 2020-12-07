@@ -105,7 +105,7 @@ void display(vector<std::unique_ptr<Person>>& person, Action* action) {
 }
 #endif
 
-int main()
+int main24()
 {
   // use shared_ptr or unique_ptr instead of new point.
 
