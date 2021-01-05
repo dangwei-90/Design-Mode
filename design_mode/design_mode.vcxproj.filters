@@ -87,5 +87,8 @@
     <ClCompile Include="cpp\7_template.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="cpp\25_producer_consumer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -58,7 +58,7 @@ Singleton* Singleton::singleton_ = nullptr;
 ////////////////////////////////////////////
 
 
-int main()
+int main17()
 {
   // C++ 11 的 static 特性，实现单例模式
   SingletonStatic* test_a_static = SingletonStatic::GetInstance();
